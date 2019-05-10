@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="กรมควบคุมโรค | Department of disease control">
+  <meta name="keywords" content="กรมควบคุมโรค | Department of disease control">
+  <meta name="author" content="กรมควบคุมโรค | Department of disease control">
+  <title>กรมควบคุมโรค | Department of disease control</title>
+  <link rel="apple-touch-icon" href="app-assets/images/ico/apple-icon-120.png">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
+  <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+  <!-- BEGIN VENDOR CSS-->
+  <link rel="stylesheet" type="text/css" href="app-assets/css/vendors.css">
+  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/icheck.css">
+  <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/icheck/custom.css">
+  <!-- END VENDOR CSS-->
+  <!-- BEGIN MODERN CSS-->
+  <link rel="stylesheet" type="text/css" href="app-assets/css/app.css">
+  <!-- END MODERN CSS-->
+  <!-- BEGIN Page Level CSS-->
+  <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+  <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
+  <link rel="stylesheet" type="text/css" href="app-assets/css/pages/login-register.css">
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="gates/style.css">
+  <!-- END Custom CSS-->
+  <style>
+    
+
+  </style>
+</head>
+<body id="firstpage" class="vertical-layout vertical-menu 1-column  bg-full-screen-image menu-expanded blank-page blank-page" data-open="click" data-menu="vertical-menu" data-col="1-column">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+      </div>
+      <div class="content-body">
+        <section class="flexbox-container  animated fadeInDown">
+          <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="col-xl-4 col-lg-6  col-md-8 col-12 box-shadow-2 p-0">
+              <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+                <div class="card-header border-0">
+                  <div class="card-title text-center">
+                    <a href="login.html">
+                    <img src="images/logo.png"  id="imglogo" class=" img-fluid" alt="กรมควบคุมโรค Department of disease control">
+                  <!--  
+                    <h3 class="txt_depart"> <span class=""> กรมควบคุมโรค  </span> <span class="txt_uni">  Department of disease control </span></h3>
+                  -->
+                  </a>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <p class="card-subtitle line-on-side text-muted text-center font-small-5 mx-2 my-1">
+                    <span>  Account Details</span>
+                  </p>
+					  <div class="card-body">
+						<form class="form-horizontal" action="index.php" novalidate>
+						  <fieldset class="form-group position-relative  text-center text-danger " id="msg">
+
+						  </fieldset>
+						  <fieldset class="form-group position-relative has-icon-left">
+							<input type="text" class="form-control" id="username" placeholder="Email or student code" value="" required>
+							<div class="form-control-position">
+							  <i class="ft-user"></i>
+							</div>
+						  </fieldset>
+						  <fieldset class="form-group position-relative has-icon-left">
+							<input type="password" class="form-control" id="userpassword" placeholder="Password" value="" required>
+							<div class="form-control-position">
+							  <i class="la la-key"></i>
+							</div> 
+						  </fieldset>
+						  
+						  <fieldset class="form-group position-relative  font-medium-2">
+							 <a  href="forgetpassw.html" class="fl-l mr-1">ลืมรหัสผ่าน</a>
+							   
+							
+						  </fieldset>
+						 
+
+
+                      </div>
+                      <button type="button" class="btn btn-info btn-block" onclick="Login();"><i class="ft-unlock"></i> Login</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <!-- BEGIN VENDOR JS-->
+  <script src="app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+  <!-- BEGIN VENDOR JS-->
+  <!-- BEGIN PAGE VENDOR JS-->
+  <!--<script src="app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" type="text/javascript"></script> -->
+  <script src="app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
+  <!-- END PAGE VENDOR JS-->
+  <!-- BEGIN MODERN JS-->
+  <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
+  <script src="app-assets/js/core/app.js" type="text/javascript"></script>
+	  <!-- END MODERN JS-->
+	  <!-- BEGIN PAGE LEVEL JS-->
+	  <!--<script src="app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>-->
+	  <!-- END PAGE LEVEL JS-->
+
+
+	  <!--<script src="gates/duck.script.js" type="text/javascript"></script>-->
+	  <!--<script src="gates/contents.script.js" type="text/javascript"></script>-->
+	  <!--<script src="gates/persons.script.js" type="text/javascript"></script>-->
+
+
+  <script>
+
+
+
+      $(document).ready(function(){
+
+          // Remember checkbox
+          if($('.chk-remember').length){
+              $('.chk-remember').iCheck({
+                  checkboxClass: 'icheckbox_square-blue',
+                  radioClass: 'iradio_square-blue',
+              });
+          }
+      });
+
+
+
+      $(document).ready(function() {
+          $("#btn_login").click( function(){
+              Login();
+          });
+
+          $("input").keypress(function(event) {
+              if (event.which == 13) {
+                  event.preventDefault();
+                  Login();
+              }
+          });
+
+      });
+
+
+      function Login(){
+			  var usern = $("#username").val();
+			  var passw = $("#userpassword").val();
+        $("#msg").empty();
+        
+
+       // window.location.href="/office/menu.php" ;
+       
+      
+			if( !usern || !passw ){
+              $("#msg").append(' <i class="ft-alert-circle"> </i> Please enter username & password <br>');
+              setTimeout(function(){  $("#msg").html('');  }, 4000);
+              $("#username").focus();
+
+			}else{
+
+              $.ajax({
+                  url: "../gates/login.php",
+                  type:'POST',
+                  dataType:'json',
+                  data:{
+                      username :  usern ,
+                      password :  passw ,
+                  },
+                  success:function(data){
+                      console.log(data);
+
+                      if(data.status=="FOUND"){
+                        //alert('ss');
+                        window.location.href="/office/menu.php" ;
+                      
+                          //setTimeout(function(){  $("#msg").html('ok');  }, 4000);
+                      }else{
+
+                          $("#msg").html('  <i class="ft-alert-circle"> </i>  Username & Password Incorrect. <br> Please try again ' );
+                       //   $("#username").val("");
+                       //   $("#userpassword").val("");
+                          setTimeout(function(){  $("#msg").html('');  }, 10000);
+                          $("#username").focus();
+                      } 
+                  },
+                  complete:function(){
+                      //alert('complete');
+                  },
+                  error:function(data){
+                      $("#msg").html('  <i class="ft-alert-circle"> </i>  Username & Password Incorrect. <br> Please try again ' );
+                   //   $("#username").val("");
+                   //   $("#userpassword").val("");
+                      setTimeout(function(){  $("#msg").html('');  }, 10000);
+                      $("#username").focus();
+                      console.log(data);
+                  }
+              });
+
+          }
+      }
+
+       
+
+
+
+  </script>
+
+</body>
+</html>

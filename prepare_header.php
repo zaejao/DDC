@@ -1,4 +1,83 @@
 <style>
+ 
+.btn-icon{
+  position: relative;
+  display: block;
+  vertical-align: top;
+  width: 30px;
+  height: 20px;
+  margin-left: 15px; 
+  margin-top: 14px;
+    float: right;
+}
+.btn-icon span{
+
+  height: 3px;
+  background: #222222;
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transform-origin: 25px, 1px;
+  -ms-transform-origin: 25px, 1px;
+  transform-origin: 25px, 1px
+}
+
+
+.btn-icon span:nth-child(1) {
+    top: 0;
+    -webkit-transition: -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98)
+}
+
+.btn-icon span:nth-child(2) {
+    top: 8px;
+    -webkit-transition: -webkit-transform 0.21s 0.175s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.21s 0.175s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.21s 0.175s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.21s 0.175s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.21s 0.175s cubic-bezier(0.72, 0.01, 0.28, 0.98)
+}
+
+.btn-icon span:nth-child(3) {
+    top: 16px;
+    -webkit-transition: -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.33s 0s cubic-bezier(0.72, 0.01, 0.28, 0.98)
+}
+ 
+.mm-wrapper_opening .btn-icon span:nth-child(1) ,
+.btn-icon[aria-expanded="true"] span:nth-child(1){
+    -webkit-transition: -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    -webkit-transform: rotate(45deg) translate3d(6px, 6px, 0);
+    transform: rotate(45deg) translate3d(6px, 6px, 0)
+}
+
+.mm-wrapper_opening .btn-icon span:nth-child(2),
+.btn-icon[aria-expanded="true"] span:nth-child(2) {
+    -webkit-transition: -webkit-transform 0.21s 0.25s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.21s 0.25s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.21s 0.25s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.21s 0.25s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.21s 0.25s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    -webkit-transform: scaleX(0) translateZ(0);
+    transform: scaleX(0) translateZ(0)
+}
+
+.mm-wrapper_opening .btn-icon span:nth-child(3),
+.btn-icon[aria-expanded="true"] span:nth-child(3){
+    -webkit-transition: -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    transition: transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98), -webkit-transform 0.33s 0.45s cubic-bezier(0.72, 0.01, 0.28, 0.98);
+    -webkit-transform: rotate(-45deg) translate3d(5.5px, -5px, 0);
+    transform: rotate(-45deg) translate3d(5.5px, -5px, 0)
+}
+
+
 .modal.left .modal-dialog,
 	.modal.right .modal-dialog {
 		position: fixed;
@@ -58,7 +137,75 @@
 		border-bottom-color: #EEEEEE;
 		background-color: #FAFAFA;
 	}
+.owl-prev {
+    /*width: 15px;*/
+    height: 100px;
+    position: absolute;
+    top: 3%;
+    margin-left: -20px;
+    display: block !important;
+    border:0px solid black;
+	left: -30px;/*-15px;*/
+}
 
+.owl-next {
+    /*width: 15px;*/
+    height: 100px;
+    position: absolute;
+    top: 3%;
+    right: -25px;
+    display: block !important;
+    border:0px solid black;
+	right: -30px;/*-15px;*/
+}
+.owl-prev i, .owl-next i {
+	/*transform : scale(1,6); */
+	color: #e84c93;
+	font-size: 35px;
+}
+.prev-left{
+	transform: rotate(180deg);
+}
+.owl-theme .owl-nav [class*='owl-']:hover,.owl-theme .owl-nav [class*='owl-']:focus{
+	background-color: transparent;
+	outline: 0;
+}
+.pad-l-r{
+	padding-left: 10px; 
+	padding-right:10px;
+}
+.seemorebtn{
+  transform: rotate(-90deg);
+  font-size: 35px;
+}
+.seemorebtn.collapsed {
+    transform: rotate(90deg);
+}
+/*.seemorebtn[aria-expanded="true"]{
+  transform: rotate(-90deg);
+}*/
+
+.icon-pink{
+  color: #e84c93;
+}
+@media (max-width: 576px) { 
+	.owl-prev i, .owl-next i {
+		font-size: 22px;
+	}
+	.owl-next {
+		right: -10px;
+	}
+	.owl-prev {
+		left: -10px;
+	}
+	.pad-l-r{
+		padding-left: 20px; 
+		padding-right:20px;
+	}
+}
+@media (max-width: 768px) { 
+	
+}
 </style> 
 <header>
  <!-- menu1 -->
@@ -214,7 +361,14 @@
                      <li  class="nav_line"> <a class="nav-item">| </a> </li>
                      <li  class="nav_sitemap">  <a href="" class="lang_sitemap"> ผังเว็บไซต์ </a>  </li>
                      <li  class="nav_search"> <a class="nav-item nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a> </li>
-                     <li  class="nav_linktog"> <a class="nav-item nav-link nav_linktog " data-toggle="modal" data-target="#myModal2"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                     <!-- <li  class="nav_linktog"> <a class="nav-item nav-link nav_linktog " href="#menu"><i class="fa fa-bars" aria-hidden="true"></i></a></li> -->
+                     
+                     <!-- <a class="btn-icon" href="#menu">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </a> -->
+                       
 
                      
 
@@ -224,7 +378,7 @@
                       
             <!-- ############################################################### --> 
             <!-- /menu2 -->
-            <div class="modal right " id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+            <!-- <div class="modal right " id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
@@ -234,13 +388,14 @@
                   </div>
 
                   <div class="modal-body">
-                    
+                    111
 
                   </div>
 
-                </div><!-- modal-content -->
-              </div><!-- modal-dialog -->
-            </div><!-- modal -->
+                </div>
+              </div>
+            </div>-->
+      
             <!-- menu -->
             <!-- ############################################################### --> 
 

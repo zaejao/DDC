@@ -1,7 +1,7 @@
 <?php 
 include "duck.conf.php";
 include "prepare_html.php"; 
-$menucode = "HOME" ;
+$menucode = "MEDIA" ;
 $menucode1 = "HOMEALL" ;
 $navsub = "publish" ;
 include $pathf."/gates/duck.class.php";
@@ -16,29 +16,17 @@ $clsdept = new DeptClass();
 $clscont = new ContentsClass();
 
 $newstype =$clscont->LoadOnce('news_type',array('news_type_code'=>'news_mag'));
-$data_newsmain = $clscont->Load('news_mapping',array( 'type' =>'news_mag','enable_th'=>'Y' ),' datetime DESC ',' 0,13');
+$data_newsmain = $clscont->Load('news_mapping',array( 'type' =>'news_mag','enable_th'=>'Y' ),' datetime DESC ','');
 
 ?>
 
-  <?php include "prepare_css.php";?>
+  
+<?php include "prepare_css.php";?>
   <body>
     <?php include "prepare_header.php";?>
-    <?php //include "prepare_bannermain.php";?>
+    <?php include "prepare_bannermain.php";?>
   <!-- ############################################################################################################### -->
-    
-      <section>
-        <div class="row justify-content-center   row_banner">
-            <div class="col-12 p-0">
-                <div class="box_deptname"> <?php echo $data_dept['department_name_'.$langcode];?> </div>
-                <img src="img/banner/Banner_U1.jpg" class="img-fluid" alt="Responsive image">
-                
-            </div>
-        </div>
-      </section>
       
-         
-
-      <?php  include 'prepare_navsub.php';?> 
       <section id="content-news">
    
         <div class="container">
@@ -77,24 +65,32 @@ $data_newsmain = $clscont->Load('news_mapping',array( 'type' =>'news_mag','enabl
                                   foreach( $data_newsmain as $key => $value ){
                                       if($value['cover']){ 
                                   ?>
-                                  <div id="news-pics2" class="col-sm-12 col-md-4 col-lg-3 p-0 mt-3 ">
+                                  <div  class="col-sm-12 col-md-4 col-lg-3 p-0 mt-3 ">
                                       <div class="row">
                                         <div class="col-12">
-                                              <div class="box-pic-main2">                     
-                                              <img src="<?php echo $path['news']. $value['cover'] ;?>" alt="" class="image"> 
+                                              <div class="box-pic-main2">        
+                                                 <a href="<?php echo $value['office']."/journal_detail.php?deptcode=".$value['office']."&news=".$value['id'];?>" >                    
+                                                    <img src="<?php echo $path['news']. $value['cover'] ;?>" alt="" class="image"> 
+                                                </a>
                                                 <div class="overlay">
                                                     <div class="text">
                                                         <div class="card-body">
                                                             <h3><?php  echo DateDisplay($value['datetime'],8) ;?></h3>
-                                                            <h5 class="card-title"> 
-                                                            <?php  echo $value['title_'.$_SESSION['LANGCODE']];?>  
-                                                            </h5>
+                                                            <a href="<?php echo $value['office']."/journal_detail.php?deptcode=".$value['office']."&news=".$value['id'];?>" >
+                                                                <h5 class="card-title"> 
+                                                                <?php  echo $value['title_'.$_SESSION['LANGCODE']];?>  
+                                                                </h5>
+                                                            </a>
+
                                                             <div class="bnt-Download">
-                                                            <a href="journal_detail.php?news=<?php echo $value['id'];?>&dept=<?php echo $value['office'];?>">   
-                                                                    <button type="button" class="btn btn-outline-danger"><span>ดาวน์โหลดเอกสาร
-                                                                            <i class="fa fa-long-arrow-down" aria-hidden="true"></i></span>
-                                                                    </button>                                    
-                                                                </a> 
+                                                            <?php 
+                                                             if($value['file']){ ?>
+                                                                <a href="<?php echo $path['files'].$value['file'];?>" target="_blank"> 
+                                                                <button type="button" class="btn btn-outline-danger"><span>ดาวน์โหลดเอกสาร
+                                                                        <i class="fa fa-download" aria-hidden="true"></i></span>
+                                                                     </button>                                    
+                                                                    </a> 
+                                                            <?php } ?>
                                                             </div> 
                                                         </div> <!-- /.card-body -->  
                                                     </div>

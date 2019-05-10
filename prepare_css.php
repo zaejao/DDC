@@ -8,5 +8,9 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" >
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/style_front.css">
+    <link rel="stylesheet" href="/js/owlcarousel/assets/owl.carousel.css">
+    <link rel="stylesheet" href="/js/owlcarousel/assets/owl.theme.default.css">
+    <!--<link rel="stylesheet" href="https://ddc.moph.go.th/asset/site/css/jquery.mmenu.all.css">-->
+    <!-- <link rel="stylesheet" href="https://ddc.moph.go.th/asset/site/css/global.css"> -->
     <!-- <link rel="stylesheet" href="https://appstack.bootlab.io/css/classic.css"> -->
     <!-- <link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.5/css/themes/default/jquery.mobile-1.4.5.min.css"> -->

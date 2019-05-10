@@ -176,17 +176,13 @@
                       console.log(data);
 
                       if(data.status=="FOUND"){
-                          if(data.position == '1'){
-                               window.location = "index.php";
-                          }else if(data.position == '2'){
-                              window.location =  "front/news.php";
-                          }else if(data.position == '3'){
-                              window.location = "front/news.php";
-                          }
-						              else if(data.position == '4'){
-                              alert('medic')
-                          }
-                          //setTimeout(function(){  $("#msg").html('ok');  }, 4000);
+                        if(data.userlevel == 1){
+                          window.location.href = "/office/menu.php" ;
+                        }else if(data.userlevel == 2 ){
+                          window.location.href = "/officedept/menu.php" ;
+                        }
+                           
+                         setTimeout(function(){  $("#msg").html('ok');  }, 4000);
                       }else{
 
                           $("#msg").html('  <i class="ft-alert-circle"> </i>  ชื่อผู้ใช้งานเเละรหัสผ่านไม่ถูกต้อง. <br> กรุณาลองใหม่อีกครั้ง ' );

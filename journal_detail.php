@@ -12,7 +12,7 @@ include $pathf."/gates/func.php";
 $langcode=$_SESSION['LANGCODE'];
 $clscont = new ContentsClass();
  
-$deptcode = $_GET['dept'];
+$deptcode = $_GET['deptcode'];
 $newsid =$_GET['news'];
 
 // $deptcode='thaincd';
@@ -21,7 +21,7 @@ $data_dept = $clscont->LoadOnce('department',array('department_code_ch'=>$deptco
 $data_news = $clscont->LoadOnce('news_mapping',array('id'=>$newsid ,'office'=>$deptcode  ));
 
 
-$data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enable_th'=>'Y'  ),' datetime DESC ',' 0,3');
+$data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enable_th'=>'Y'  ),' datetime DESC ',' 0,4');
 
 ?> 
 
@@ -88,9 +88,9 @@ $data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enabl
                         <div class="view">
                             <i class="fa fa-eye" aria-hidden="true">
                             <span class="ml-1 mb-5"> 
-                      <?php echo $data_news['views'] ;?>
-                        <span class="lang_view"> View </span> 
-                       </span>
+                              <?php echo $data_news['views'] ;?>
+                                <span class="lang_view"> View </span> 
+                              </span>
                             </i>
                         </div>
         
@@ -101,22 +101,24 @@ $data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enabl
          <!-- content-detail-->
         <div class="row">
 
-                <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5">
+                <div class="col-sm-12 col-md-12 col-lg-8 mt-5 mb-5">
                     <img src="<?php echo $path['news']. $data_news['cover'] ;?>" class="card-img-top"  >  
                  </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5">
+                <div class="col-sm-12 col-md-12 col-lg-4 mt-5 mb-5">
                         <div id="content-detail"> 
-                        <p class="p_indent">    
-
-                                            <?php echo  htmlspecialchars_decode($data_news['desc_'.$_SESSION['LANGCODE']]);?>
-
-                                            </p>   
-                         <a href="#">
-                                <button type="button" class="btn btn-outline-danger"><span>ดาวน์โหลดเอกสาร
-                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i></span>
-                                </button>                                    
-                         </a> 
-    
+                        <p class="p_indent"> 
+                          <?php echo  htmlspecialchars_decode($data_news['desc_'.$_SESSION['LANGCODE']]);?>
+                        </p>   
+                        <?php 
+                        if($data_news['file']){ ?>
+                        <a href="<?php echo $path['files'].$data_news['file'];?>" class="btn_round1" target="_blank">
+                          <span>ดาวน์โหลดเอกสาร  
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                          </span>                                    
+                        </a> 
+                        <?php } ?>
+                        
+                        
                 </div>  <!-- close id="content-detail" class="col-lg-12" -->
             </div>
                 
@@ -128,14 +130,14 @@ $data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enabl
 <section id="journal">
         <div class="container">            
                 <div class="row">
-                        <div class="col-6">
+                        <div class="col-8">
                           <h5>วารสารออนไลน์อื่นๆ  </h5>
                           <hr style="width:140px;margin-left:0; border-top: 3px solid  #e84c93; ">
                           
                         </div>     
     
-                        <div class="col-6"> 
-                        <a id="list-viewAll" href="#" >ดูทั้งหมด</a>  
+                        <div class="col-4 text-right"> 
+                        <a class="btn_round1" href="journal.php" >ดูทั้งหมด</a>  
                         
                         </div>   
                 </div>
@@ -153,20 +155,25 @@ $data_newsetc = $clscont->Load('news_mapping',array( 'type' =>'news_mag', 'enabl
 
                         <div class="col-lg-3 mt-3 mb-3">
                                 <div class="box-pic-main2">
-                                <a href="journal_detail.php?news=<?php echo $value['id'];?>&dept=<?php echo $value['office'];?>">                      
-                                <img src="<?php echo $path['news']. $value['cover'] ;?>" class="image"> 
-                                </a>
+                                  <a href="journal_detail.php?news=<?php echo $value['id'];?>&deptcode=<?php echo $value['office'];?>">                      
+                                    <img src="<?php echo $path['news']. $value['cover'] ;?>" class="image"> 
+                                  </a>
                                   <div class="overlay">
                                       <div class="text">
                                           <div class="card-body">
                                               <h3> <?php  echo DateDisplay($value['datetime'],8) ;?></h3>
-                                              <h5 class="card-title">  <?php  echo $value['title_'.$_SESSION['LANGCODE']];?>  </h5>
+                                              <a href="journal_detail.php?news=<?php echo $value['id'];?>&deptcode=<?php echo $value['office'];?>">       
+                                                <h5 class="card-title">  <?php  echo $value['title_'.$_SESSION['LANGCODE']];?>  </h5>
+                                              </a>
                                               <div class="bnt-Download">
-                                              <a href="journal_detail.php?news=<?php echo $value['id'];?>&dept=<?php echo $value['office'];?>"> 
+                                              <?php 
+                                                if($value['file']){ ?>
+                                                  <a href="<?php echo $path['files'].$value['file'];?>" target="_blank"> 
                                                       <button type="button" class="btn btn-outline-danger"><span>ดาวน์โหลดเอกสาร
-                                                              <i class="fa fa-long-arrow-down" aria-hidden="true"></i></span>
+                                                              <i class="fa fa-download" aria-hidden="true"></i></span>
                                                       </button>                                    
                                                   </a> 
+                                                <?php } ?>
                                               </div> 
                                           </div> <!-- /.card-body -->  
                                       </div>

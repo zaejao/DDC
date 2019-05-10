@@ -23,6 +23,11 @@ if( !isset($data_id) && gettype($data_id)!= "" ){
  // echo "YYY" . gettype($_GET['d']);
 }
 // echo $date_id;
+
+
+$dheader = $clscont->Load('disease_header',array('enable'=>'Y','deleted'=>0),' orderby DESC ','');
+
+
 ?>
 
   <?php include "prepare_css.php";?>
@@ -40,21 +45,20 @@ if( !isset($data_id) && gettype($data_id)!= "" ){
           
           
             <div class="row">
-              <div class="col-3"> 
+              <div class="col-12" > 
                 <span class="topic_text lang_diseasedetail"> รายละเอียดโรค</span> 
               </div>
-              <div class="col-9 box_headerdisease font_title">  
+              <!-- <div class="col-9 box_headerdisease font_title">  
                 <span class="diseasename "> </span>
-              </div>
+              </div> -->
             </div>
-
+<!-- 
             <div class="row mt-4 row_prepare"> 
               <div class="col-12 text-center p-4">
               ----   <span class="lang_preparedata"> เตรียมข้อมูล </span> ---- 
               </div>
             </div>
-
-
+ 
             <div class="row mt-4 row_data">
               <div class="col-3">
                 <div class="nav flex-column nav-pills pillstab" id="pills_tab" role="tablist" aria-orientation="vertical">
@@ -65,27 +69,74 @@ if( !isset($data_id) && gettype($data_id)!= "" ){
 
                 </div>
               </div>
-            </div>
-            <!-- 
-                    <div class="row">
+            </div> -->
+          
+          
+          
+            
+            
+                    <div class="row  mt-4 row_data">
                       <div class="col-3">
                         <div class="nav flex-column nav-pills pillstab" id="pills_tab" role="tablist" aria-orientation="vertical">
-                          <a class="nav-link active linknone2" data-toggle="pill" href="#v-pills-home" role="tab" aria-selected="true">Home <i class="fa fa-chevron-down"></i> </a>
-                          <a class="nav-link linknone2"  data-toggle="pill" href="#v-pills-profile" role="tab" aria-selected="false">Profile <i class="fa fa-chevron-down"></i> </a>
-                          <a class="nav-link linknone2"  data-toggle="pill" href="#v-pills-messages" role="tab" aria-selected="false">Messages <i class="fa fa-chevron-down"></i> </a>
-                          <a class="nav-link linknone2"  data-toggle="pill" href="#v-pills-settings" role="tab"  aria-selected="false">กกกก <i class="fa fa-chevron-down"></i> </a>
+                          <?php 
+                          if($dheader ){
+                            foreach( $dheader  as $key1 => $val1){
+                              $active = " ";
+                              if($key1==0){
+                                $active = " active";
+                              }
+                            
+                            ?> 
+                                <a class="nav-link   linknone2 <?php echo $active;?>" data-toggle="pill" href="#dis<?php echo $val1['id'];?>" role="tab" aria-selected="true"> <?php echo $val1['disease_header_th'];?> <i class="fa fa-chevron-down"></i> </a>
+                     
+                            <?php
+                            }
+                          }
+                          ?>
+                           <!-- <a class="nav-link linknone2"  data-toggle="pill" href="#v-pills-profile" role="tab" aria-selected="false">Profile <i class="fa fa-chevron-down"></i> </a> -->
+                       </div>
+                      </div>
+                      <div class="col-9 "> 
+
+                        <div class="  box_headerdisease font_title">  
+                          <span class="diseasename "> </span>
+                        </div>
+
+                        <div class="tab-content mt-2" id="pills_tab_contentss">
+                        <?php 
+                          if($dheader ){
+                            foreach( $dheader  as $key1 => $val1){
+                                $active = "";
+                                $show = "";
+                              if($key1==0){ 
+                                $active = " active";
+                                $show = " show";
+                              }
+
+                              $ddetail = $clscont->LoadOnce('disease_detail',array('disease_id'=>$data_id,'disease_header_id'=>$val1['id'],'enable'=>'Y','deleted'=>0));
+                              
+                         ?>
+                            <div class="tab-pane fade <?php echo $active." ".$show;?>" id="dis<?php echo $val1['id'];?>" role="" > 
+                              <?php 
+                              if( $ddetail ){ 
+                                echo htmlspecialchars_decode($ddetail['detail_th']); 
+                              }else{ 
+                                ?>
+                                <div class="text-center">
+                                   ---- <span class="lang_preparedata"> เตรียมข้อมูล </span> ---- 
+                                </div>
+                                <?php
+                              }
+                              ?> 
+                             </div> 
+                            <?php 
+                            
+                           }
+                          }
+                           ?>
                         </div>
                       </div>
-                      <div class="col-9">
-                        <div class="tab-content" id="pills_tab_content">
-                          
-                          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" > AA </div>
-                          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" > BB </div>
-                          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" > CC </div>
-                          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel">  DD </div>
-                        </div>
-                      </div>
-                    </div> -->
+                    </div>  
           </div>
         </div>
       </div>
@@ -106,8 +157,8 @@ if( !isset($data_id) && gettype($data_id)!= "" ){
     
     var data_id = '<?php echo $data_id;?>' ;
       $( document ).ready(function() {
-        dept.LoadDiseaseContents(data_id) ;    
-        dept.LoadDiseaseName(data_id,'diseasename');
+     //  dept.LoadDiseaseContents(data_id) ;    
+       dept.LoadDiseaseName(data_id,'diseasename');
       });
 
     </script>  

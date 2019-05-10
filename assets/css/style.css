@@ -1,0 +1,66 @@
+/*================================================================================
+	Item Name: Modern Admin - Clean Bootstrap 4 Dashboard HTML Template
+	Version: 1.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+.text-yellow{
+	/*color: #ffc107;*/
+	color: #6B6F82;
+}
+.text-red{
+	color: #6B6F82; 
+}
+a p{
+	color: #6B6F82;
+}
+
+
+a.text-yellow:hover,a.text-yellow:active ,a.text-yellow:not([href]):not([tabindex]):hover ,a.text-yellow.active {
+	color: #ffb407;
+}
+a.text-red:hover,a.text-red:active ,a.text-red:not([href]):not([tabindex]):hover ,a.text-red.active  {
+	color: #f44336;
+}
+
+
+img.ico_psycho{
+	width: 20px;
+}
+img.ico_psycho.ico_star{
+	background-image: url("/images/icon/s1.png");
+	background-repeat: no-repeat;
+	height: 20px;
+}
+img.ico_psycho.ico_star:hover{
+	background-image: url("/images/icon/s3.png");
+	background-repeat: no-repeat;
+	height: 20px;
+}
+img.ico_psycho.ico_chili{
+	background-image: url('/images/icon/c1.png');
+	background-repeat: no-repeat;
+	height: 20px;
+}
+img.ico_psycho.ico_chili:hover{
+	background-image: url('/images/icon/c3.png');
+	background-repeat: no-repeat;
+	height: 20px;
+}
+
+img.ico_psycho.ico_star.active{
+	background-image: url("/images/icon/s3.png");
+	background-repeat: no-repeat;
+	height: 20px;
+}
+img.ico_psycho.ico_chili.active{
+	background-image: url('/images/icon/c3.png');
+	background-repeat: no-repeat;
+	height: 20px;
+}

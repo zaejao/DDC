@@ -19,7 +19,13 @@ $clscont = new ContentsClass();
 
 $law = $_GET['law'] ;
 
-$lawdata = $clscont->LoadOnce('sub_category',array('SCAT_id'=>$law)); //8 9 10
+if($law != '1' && $law != '2' &&$law != '3'){
+
+    $law = '1' ;
+}
+//$lawdata = $clscont->LoadOnce('sub_category',array('SCAT_id'=>$law)); //8 9 10
+
+$lawdata = $clscont->LoadOnce('law_category',array('id'=>$law)); //8 9 10
 ?>
 
 <?php include "prepare_css.php";?>
@@ -37,13 +43,41 @@ $lawdata = $clscont->LoadOnce('sub_category',array('SCAT_id'=>$law)); //8 9 10
 
                 <div class="row">
                     <div class="col-12  mt-4 mb-4"> 
-                        <span class="topic_text "> <?php echo $lawdata['SCAT_th'];?></span> 
+                        <span class="topic_text "> <?php echo $lawdata['category_th'];?></span> 
                     </div> 
                 </div>
 
                 <div class="row datali">
                     <div class="col-12 mt-4"> 
-                    <?php echo htmlspecialchars_decode($lawdata['SCAT_desc_th']);?>
+                    <?php //echo htmlspecialchars_decode($lawdata['SCAT_desc_th']);
+                    
+                    $lawdatahead = $clscont->Load('law_header',array('law_category_id'=>$law ,'deleted'=>0 ),' orderby DESC' ,'');
+                    if($lawdatahead){
+                         foreach(   $lawdatahead  as $key => $val ){
+                            $lawd = $clscont->Load('law_detail',array('law_header_id'=>$val['id'] ,'deleted'=>0 ),' orderby DESC','' );
+                             ?>
+                             <div class="row  ">
+                             <div class=" col-12 box_law mb-2"  >
+                                <h4>  <?php echo $val['law_header_name'] ; ?></h4> 
+                                <div> 
+                                    <?php 
+                                    if( $lawd ){
+                                    ?>
+                                    <ul> 
+                                        <?php 
+                                         foreach(   $lawd  as $key1 => $val1 ){
+                                        ?>
+                                        <li > <a href="<?php echo $path['uploads'].$val1['lawfiles'];?>" target="_blank"> <?php echo  $val1['lawname'];?> </a> </li>
+                                         <?php } ?>
+                                    </ul>    
+                                    <?php } ?>
+                                         </div>
+                            </div> </div>
+                             <?php
+                         }
+                    }
+                    ?>
+
                     </div>
                 </div>
 
